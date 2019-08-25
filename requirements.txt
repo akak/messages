@@ -5,6 +5,7 @@ Django==2.2.4
 django-heroku==0.3.1
 django-rosetta==0.9.3
 djangorestframework==3.10.2
+gunicorn==19.9.0
 idna==2.8
 polib==1.1.0
 psycopg2==2.8.3
