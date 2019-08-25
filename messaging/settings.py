@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework.authtoken',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -127,6 +128,9 @@ DATE_INPUT_FORMATS = [
 REST_FRAMEWORK = {
     'DATE_FORMAT': '%d/%m/%Y',
     'DATETIME_FORMAT': '%d/%m/%Y %H:%M:%S',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
 
 # Static files (CSS, JavaScript, Images)
