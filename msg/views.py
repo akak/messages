@@ -14,7 +14,10 @@ class MsgViewSet(mixins.CreateModelMixin,
     serializer_class = MsgSerializer
 
     def get_queryset(self):
-        qs = Message.objects.filter(Q(sender=self.request.user) | Q(receiver=self.request.user)).order_by('-created')
+        user = self.request.user
+        if not user.is_authenticated:
+            raise exceptions.PermissionDenied("Unauthenticated!")
+        qs = Message.objects.filter(Q(sender=user) | Q(receiver=user)).order_by('-created')
         if 'unreadOnly' in self.request.GET:
             qs = qs.filter(unread=True)
         return qs

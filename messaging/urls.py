@@ -17,6 +17,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
+from rest_framework.authtoken import views as rest_auth_views
 
 from msg import views
 
@@ -26,7 +27,7 @@ router.register(r'msgs', views.MsgViewSet, basename='Message')
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api-token-auth/', rest_auth_views.obtain_auth_token)
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:
