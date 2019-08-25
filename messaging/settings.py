@@ -129,7 +129,7 @@ REST_FRAMEWORK = {
     'DATE_FORMAT': '%d/%m/%Y',
     'DATETIME_FORMAT': '%d/%m/%Y %H:%M:%S',
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'messaging.auth.BearerAuth',
     ],
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
