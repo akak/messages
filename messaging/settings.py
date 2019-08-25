@@ -128,6 +128,7 @@ DATE_INPUT_FORMATS = [
 REST_FRAMEWORK = {
     'DATE_FORMAT': '%d/%m/%Y',
     'DATETIME_FORMAT': '%d/%m/%Y %H:%M:%S',
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'messaging.auth.BearerAuth',
     ],
